@@ -1,0 +1,161 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", "Noto Sans Bengali", sans-serif;
+}
+
+#export-card {
+
+width:1080px;
+height:1350px;
+
+font-family:
+"Hind Siliguri",
+"Noto Sans Bengali",
+sans-serif;
+
+}
+
+body {
+  background: #0b0b0b;
+  color: white;
+
+  /* 🔥 PRO TEXT RENDERING */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+}
+
+.generate-btn{
+
+width:100%;
+
+padding:12px;
+
+margin-bottom:20px;
+
+border:none;
+
+border-radius:10px;
+
+background:
+linear-gradient(
+135deg,
+#E63946,
+#ff7b00
+);
+
+color:white;
+
+font-weight:700;
+
+cursor:pointer;
+
+font-size:15px;
+
+}
+
+
+.generate-btn:disabled{
+
+opacity:.5;
+
+cursor:not-allowed;
+
+}
+
+/* LAYOUT */
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* LEFT PANEL */
+.editor {
+  width: 380px;
+  background: #111;
+  border-right: 1px solid #222;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.panel-title {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* INPUT GROUPS */
+.group {
+  margin-bottom: 15px;
+}
+
+.group label {
+  display: block;
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 6px;
+}
+
+/* INPUTS */
+.editor input,
+.editor select,
+.editor textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  background: #1a1a1a;
+  color: white;
+  outline: none;
+  font-size: 14px;
+}
+
+.editor textarea {
+  min-height: 90px;
+  resize: none;
+}
+
+/* RIGHT PANEL */
+.preview {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+
+.download-btn {
+  margin-top: -70px;
+}
+
+/* CARD ZOOM (ONLY VISUAL) */
+.preview-frame {
+  transform: scale(0.62);
+  transform-origin: center;
+
+  /* 🔥 PRO SHADOW FOR BETTER PREVIEW */
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  border-radius: 12px;
+}
+
+
+
+/* DOWNLOAD BUTTON */
+.download-btn {
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #ffcc00, #ff9900);
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  color: black;
+  transition: 0.2s ease;
+}
+
+.download-btn:hover {
+  transform: scale(1.05);
+}
+
