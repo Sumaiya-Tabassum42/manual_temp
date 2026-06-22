@@ -16,7 +16,7 @@ export default function Contemporary({ state }) {
         position: "relative",
         overflow: "hidden",
 
-        background: "#111",
+        background: "#ffffff",
 
         fontFamily:
           "'Hind Siliguri', 'Noto Sans Bengali', sans-serif",
