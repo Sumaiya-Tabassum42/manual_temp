@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/generate-card";
+const API_URL = "https://humorous-truth-production.up.railway.app/generate-card";
 
 
 export async function generateCard(articleUrl) {
