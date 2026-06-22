@@ -191,7 +191,7 @@ body {
 
 /* ─── DOWNLOAD BUTTON ─── */
 .download-btn { 
-  margin-top: 0px;
+  margin-top: 0;
   padding: 11px 24px; 
   background: #111827; 
   border: none; 
