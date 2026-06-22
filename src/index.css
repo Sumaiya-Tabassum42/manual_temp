@@ -181,6 +181,18 @@ body {
   overflow-x: hidden;
   padding-top: 40px;
   padding-bottom: 40px;
+  min-height: 100vh;
+}
+
+/* ─── CARD CONTAINER ─── */
+.preview-card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-height: 70vh; /* Limit the height */
+  overflow: visible;
+  position: relative;
 }
 
 /* ─── CARD ZOOM ─── */
@@ -189,19 +201,25 @@ body {
   transform-origin: top center;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.50);
   border-radius: 12px;
-  /* Remove the negative margin that was causing issues */
   margin-bottom: 0;
-  /* Add a container div to handle the scaled size properly */
   max-width: 100%;
-  /* Ensure content doesn't overflow */
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 /* ─── DOWNLOAD BUTTON ─── */
 .download-btn {
-  margin-top: 20px; /* Changed from -70px to give proper spacing */
+  margin-top: 20px;
   position: relative;
   z-index: 10;
+  padding: 12px 36px;
+  background: #1877f2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  flex-shrink: 0; /* Prevent button from shrinking */
 }
 
 .download-btn:hover {
