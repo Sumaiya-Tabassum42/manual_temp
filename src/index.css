@@ -19,10 +19,9 @@ sans-serif;
 }
 
 body {
-  background: #0b0b0b;
-  color: white;
+  background: #ffffff;
+  color: #111111;
 
-  /* 🔥 PRO TEXT RENDERING */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: geometricPrecision;
