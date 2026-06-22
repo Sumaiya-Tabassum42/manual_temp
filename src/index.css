@@ -171,40 +171,35 @@ body {
 /* ─── RIGHT PANEL ─── */
 .preview {
   flex: 1;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 20px;
   background: #f0f2f5;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 40px 0;
+  overflow: hidden;
 }
 
 /* ─── CARD ZOOM ─── */
 .preview-frame {
-  transform: scale(0.62);
-  transform-origin: top center;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.50);
+  width: 1080px;
+  height: 1350px;
+
+  transform: scale(
+    min(calc((100vh - 160px) / 1350), calc((100vw - 400px) / 1080))
+  );
+
+  transform-origin: center;
+
+  box-shadow: 0 30px 80px rgba(0,0,0,0.50);
   border-radius: 12px;
-  margin-bottom: -500px;
 }
+
 /* ─── DOWNLOAD BUTTON ─── */
 .download-btn {
-  margin-top: -70px;
-  padding: 11px 24px;
-  background: #111827;
-  border: none;
-  border-radius: 10px;
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  font-size: 13.5px;
-  cursor: pointer;
-  color: #ffffff;
-  letter-spacing: 0.02em;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  flex-shrink: 0;
+  margin-top: 0;
 }
 
 .download-btn:hover {
