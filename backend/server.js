@@ -10,7 +10,9 @@ const OpenAI = require("openai");
 const app = express();
 
 
-app.use(cors());
+app.use(cors({
+  origin: "https://manualtemp-production.up.railway.app"
+}));
 app.use(express.json());
 
 
