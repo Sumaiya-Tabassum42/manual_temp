@@ -198,8 +198,16 @@ body {
 
 /* ─── DOWNLOAD BUTTON ─── */
 .download-btn {
-  flex-shrink: 0;
-  margin-top: 0;
+  margin-top: -510px;
+  padding: 11px 24px;
+  background: #111827;
+  border: none;
+  border-radius: 10px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 13.5px;
+  cursor: pointer;
+  color: #ffffff;
 }
 
 .download-btn:hover {
