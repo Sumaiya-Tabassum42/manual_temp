@@ -1,161 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
 
+/* ─── RESET ─── */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* ─── CARD EXPORT (unchanged) ─── */
+#export-card {
+  width: 1080px;
+  height: 1350px;
   font-family: "Hind Siliguri", "Noto Sans Bengali", sans-serif;
 }
 
-#export-card {
-
-width:1080px;
-height:1350px;
-
-font-family:
-"Hind Siliguri",
-"Noto Sans Bengali",
-sans-serif;
-
-}
-
+/* ─── BODY ─── */
 body {
-  background: #f5f7fa;
-
-
+  background: #f0f2f5;
+  font-family: "Inter", "Hind Siliguri", "Noto Sans Bengali", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: geometricPrecision;
+  color: #111827;
 }
 
-.generate-btn{
-
-width:100%;
-
-padding:12px;
-
-margin-bottom:20px;
-
-border:none;
-
-border-radius:10px;
-
-background:
-linear-gradient(
-135deg,
-#E63946,
-#ff7b00
-);
-
-color:white;
-
-font-weight:700;
-
-cursor:pointer;
-
-font-size:15px;
-
-}
-
-
-.generate-btn:disabled{
-
-opacity:.5;
-
-cursor:not-allowed;
-
-}
-
-/* LAYOUT */
+/* ─── LAYOUT ─── */
 .app-container {
   display: flex;
   height: 100vh;
+  overflow: hidden;
 }
 
-/* LEFT PANEL */
+/* ─── LEFT PANEL ─── */
 .editor {
-  width: 380px;
+  width: 360px;
+  min-width: 360px;
   background: #ffffff;
   border-right: 1px solid #e5e7eb;
-  padding: 20px;
+  padding: 0;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Panel header bar */
+.editor::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, #E63946, #ff7b00);
+  flex-shrink: 0;
 }
 
 .panel-title {
-  font-size: 18px;
-  margin-bottom: 20px;
-  color: #111;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #111827;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #f3f4f6;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: #ffffff;
 }
 
-/* INPUT GROUPS */
+/* ─── INNER SCROLL AREA ─── */
+.editor > .generate-btn {
+  margin-top: 4px;
+}
+
+/* ─── INPUT GROUPS ─── */
 .group {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .group label {
   display: block;
-  font-size: 12px;
-  color: #444;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
   margin-bottom: 6px;
 }
 
-/* INPUTS */
+/* ─── INPUTS ─── */
 .editor input,
 .editor select,
 .editor textarea {
   width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-  background: #ffffff;
-  color: #111111;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  color: #111827;
   outline: none;
-  font-size: 14px;
+  font-family: "Inter", "Hind Siliguri", "Noto Sans Bengali", sans-serif;
+  font-size: 13.5px;
+  line-height: 1.5;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.editor input:focus,
+.editor select:focus,
+.editor textarea:focus {
+  border-color: #E63946;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.10);
+}
+
+.editor input::placeholder,
+.editor textarea::placeholder {
+  color: #9ca3af;
+  font-size: 13px;
 }
 
 .editor textarea {
-  min-height: 90px;
-  resize: none;
+  min-height: 88px;
+  resize: vertical;
 }
 
-/* RIGHT PANEL */
+/* color picker special treatment */
+.editor input[type="color"] {
+  height: 40px;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* ─── GENERATE BUTTON ─── */
+.generate-btn {
+  display: block;
+  width: calc(100% - 48px);
+  margin: 0 24px 20px;
+  padding: 11px 16px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #E63946 0%, #ff7b00 100%);
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 13.5px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(230, 57, 70, 0.30);
+}
+
+.generate-btn:hover:not(:disabled) {
+  opacity: 0.93;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(230, 57, 70, 0.38);
+}
+
+.generate-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.generate-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ─── RIGHT PANEL ─── */
 .preview {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1px;
+  gap: 20px;
+  background: #f0f2f5;
+  overflow: hidden;
 }
 
-.download-btn {
-  margin-top: -70px;
-}
-
-/* CARD ZOOM (ONLY VISUAL) */
+/* ─── CARD ZOOM ─── */
 .preview-frame {
   transform: scale(0.62);
   transform-origin: center;
-
-  /* 🔥 PRO SHADOW FOR BETTER PREVIEW */
-  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.50);
   border-radius: 12px;
 }
 
-
-
-/* DOWNLOAD BUTTON */
+/* ─── DOWNLOAD BUTTON ─── */
 .download-btn {
-  padding: 12px 18px;
-  background: linear-gradient(135deg, #ffcc00, #ff9900);
+  margin-top: -70px;
+  padding: 11px 24px;
+  background: #111827;
   border: none;
   border-radius: 10px;
-  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 13.5px;
   cursor: pointer;
-  color: black;
-  transition: 0.2s ease;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
 .download-btn:hover {
-  transform: scale(1.05);
+  background: #1f2937;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.24);
 }
 
+.download-btn:active {
+  transform: translateY(0);
+}
+
+/* ─── SCROLLBAR (left panel) ─── */
+.editor::-webkit-scrollbar {
+  width: 5px;
+}
+.editor::-webkit-scrollbar-track {
+  background: transparent;
+}
+.editor::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 99px;
+}
+.editor::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}
