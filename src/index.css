@@ -19,8 +19,8 @@ sans-serif;
 }
 
 body {
-  background: #ffffff;
-  color: #111111;
+  background: #f5f7fa;
+
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -74,8 +74,8 @@ cursor:not-allowed;
 /* LEFT PANEL */
 .editor {
   width: 380px;
-  background: #111;
-  border-right: 1px solid #222;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
   padding: 20px;
   overflow-y: auto;
 }
@@ -83,6 +83,7 @@ cursor:not-allowed;
 .panel-title {
   font-size: 18px;
   margin-bottom: 20px;
+  color: #111;
 }
 
 /* INPUT GROUPS */
@@ -93,7 +94,7 @@ cursor:not-allowed;
 .group label {
   display: block;
   font-size: 12px;
-  color: #aaa;
+  color: #444;
   margin-bottom: 6px;
 }
 
@@ -104,9 +105,9 @@ cursor:not-allowed;
   width: 100%;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #2a2a2a;
-  background: #1a1a1a;
-  color: white;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #111111;
   outline: none;
   font-size: 14px;
 }
