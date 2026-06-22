@@ -174,36 +174,27 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 0;
+  justify-content: flex-start;
+  gap: 20px;
   background: #f0f2f5;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 /* ─── CARD ZOOM ─── */
 .preview-frame {
   transform: scale(0.62);
-  transform-origin: center;
+  transform-origin: top center;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.50);
   border-radius: 12px;
-  margin-bottom: -510px;
+  margin-bottom: -500px;
 }
 
 /* ─── DOWNLOAD BUTTON ─── */
-.download-btn { 
-  margin-top: 0;
-  padding: 11px 24px; 
-  background: #111827; 
-  border: none; 
-  border-radius: 10px;
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  font-size: 13.5px; 
-  cursor: pointer;
-  color: #ffffff;
-  letter-spacing: 0.02em; 
-  transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+.download-btn {
+  margin-top: -70px;
 }
 
 .download-btn:hover {
