@@ -28,7 +28,6 @@ body {
 .app-container {
   display: flex;
   height: 100vh;
-  overflow: hidden;
 }
 
 /* ─── LEFT PANEL ─── */
@@ -178,7 +177,8 @@ body {
   justify-content: center;
   gap: 20px;
   background: #f0f2f5;
-  overflow: hidden;
+  overflow-y: auto;
+  padding: 40px 0;
 }
 
 /* ─── CARD ZOOM ─── */
