@@ -7,7 +7,12 @@ export default function Preview({ state }) {
 
   return (
 
-    <div className="preview">
+    <div
+  className="preview"
+  style={{
+    background: "#ffffff"
+  }}
+>
 
 
       <div
