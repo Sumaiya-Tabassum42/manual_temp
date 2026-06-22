@@ -21,7 +21,7 @@ export default function App() {
     highlightColor: "#E63946",
 
     // editable fields
-    subcategory: "বিজ্ঞান",
+    subcategory: "ফিফা বিশ্বকাপ",
     source: "The Contemporary",
 
     date:

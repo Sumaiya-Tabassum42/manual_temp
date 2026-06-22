@@ -1,4 +1,4 @@
-import { generateArticleCard } from "../services/api";
+import { generateCard } from "../services/api";
 import { useState } from "react";
 
 
@@ -8,83 +8,107 @@ export default function Editor({
 }) {
 
 
-const [loading,setLoading] =
-useState(false);
+  const [loading, setLoading] = useState(false);
 
 
+  const update = (key, value) => {
 
-const update=(key,value)=>{
+    setState(prev => ({
+      ...prev,
+      [key]: value
+    }));
 
-setState(prev=>({
+  };
+
+
+  async function handleGenerate() {
+
+    try {
+
+      if (!state.articleUrl) {
+        alert("Please enter article URL");
+        return;
+      }
+
+
+      setLoading(true);
+
+
+      console.log(
+        "Sending article URL:",
+        state.articleUrl
+      );
+
+
+      const data = await generateCard(
+        state.articleUrl
+      );
+
+
+      console.log(
+        "n8n response:",
+        data
+      );
+
+
+      setState(prev => ({
+
 ...prev,
-[key]:value
-}));
-
-};
-
-
-
-async function handleGenerate(){
-
-try{
-
-
-setLoading(true);
-
-
-const data =
-await generateArticleCard(
-state.articleUrl
-);
-
-
-
-setState(prev=>({
-
-...prev,
-
 
 headline:
-data.headline ||
-prev.headline,
+data.headline || prev.headline,
+
+
+summary:
+data.summary || prev.summary,
+
+
+hashtags:
+data.hashtags
+  ? data.hashtags
+      .map(tag =>
+        tag.startsWith("#") ? tag : `#${tag}`
+      )
+      .join(", ")
+  : prev.hashtags,
 
 
 background:
-data.image_url ||
-prev.background,
+data.image_url || prev.background,
 
 
 source:
-data.source ||
-prev.source,
+data.source || prev.source,
 
 
-subcategory:
-data.subcategory ||
-prev.subcategory
-
+date:
+data.date || prev.date
 
 }));
 
 
+    }
 
-}
-catch(err){
+    catch(err) {
 
-console.error(err);
+      console.error(
+        "Generation error:",
+        err
+      );
 
-alert(
-"Generation failed"
-);
+      alert(
+        "Generation failed"
+      );
 
-}
-finally{
+    }
 
-setLoading(false);
+    finally {
 
-}
+      setLoading(false);
 
-}
+    }
+
+  }
 
 
 
@@ -108,7 +132,7 @@ Article URL
 
 <input
 
-value={state.articleUrl}
+value={state.articleUrl || ""}
 
 onChange={(e)=>
 update(
@@ -119,7 +143,6 @@ e.target.value
 placeholder="Paste article link"
 
 />
-
 
 </div>
 
@@ -143,7 +166,6 @@ loading
 "✨ Generate From Article"
 }
 
-
 </button>
 
 
@@ -159,7 +181,7 @@ Headline
 
 <textarea
 
-value={state.headline}
+value={state.headline || ""}
 
 onChange={(e)=>
 update(
@@ -172,7 +194,47 @@ e.target.value
 </div>
 
 
+<div className="group">
 
+<label>
+Summary
+</label>
+
+<textarea
+
+value={state.summary}
+
+onChange={(e)=>
+update(
+"summary",
+e.target.value
+)}
+
+rows="6"
+
+/>
+
+</div>
+
+<div className="group">
+
+<label>
+Hashtags
+</label>
+
+<input
+
+value={state.hashtags}
+
+onChange={(e)=>
+update(
+"hashtags",
+e.target.value
+)}
+
+/>
+
+</div>
 
 
 <div className="group">
@@ -184,7 +246,7 @@ Highlighted Word
 
 <input
 
-value={state.highlightWord}
+value={state.highlightWord || ""}
 
 onChange={(e)=>
 update(
@@ -211,7 +273,7 @@ Highlight Color
 
 type="color"
 
-value={state.highlightColor}
+value={state.highlightColor || "#ff0000"}
 
 onChange={(e)=>
 update(
@@ -236,7 +298,7 @@ Subcategory
 
 <input
 
-value={state.subcategory}
+value={state.subcategory || ""}
 
 onChange={(e)=>
 update(
@@ -261,7 +323,7 @@ Source
 
 <input
 
-value={state.source}
+value={state.source || ""}
 
 onChange={(e)=>
 update(
@@ -274,10 +336,8 @@ e.target.value
 </div>
 
 
-
 </div>
 
 );
-
 
 }

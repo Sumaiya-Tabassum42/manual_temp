@@ -1,14 +1,13 @@
-const N8N_WEBHOOK_URL =
-  "https://n8n.mysoftheaven.com/webhook/contemporary-card";
+const API_URL = "http://localhost:3000/generate-card";
 
 
 export async function generateCard(articleUrl) {
 
-  console.log("Sending to n8n:", articleUrl);
+  console.log("Sending to backend:", articleUrl);
 
 
   const response = await fetch(
-    N8N_WEBHOOK_URL,
+    API_URL,
     {
       method: "POST",
 
@@ -17,19 +16,20 @@ export async function generateCard(articleUrl) {
       },
 
       body: JSON.stringify({
-        article_url: articleUrl,
+        articleUrl: articleUrl,
       }),
     }
   );
 
 
-  console.log("n8n response status:", response.status);
-
-
   const data = await response.json();
 
+  console.log("Backend response:", data);
 
-  console.log("n8n data:", data);
+
+  if (!response.ok) {
+    throw new Error(data.error || "Backend error");
+  }
 
 
   return data;
