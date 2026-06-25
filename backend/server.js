@@ -5,15 +5,28 @@ const cors = require("cors");
 const axios = require("axios");
 const cheerio = require("cheerio");
 const OpenAI = require("openai");
+const rateLimit = require("express-rate-limit");
 
 
 const app = express();
 
 
-app.use(cors({
-  origin: "https://manualtemp-production.up.railway.app"
-}));
+app.use(cors());
 app.use(express.json());
+
+const generateCardLimiter = rateLimit({
+  windowMs: 24 * 60 * 60 * 1000, // 24 hours
+
+  max: 5, // 5 generations per day
+
+  message: {
+    error:
+      "Daily limit reached. You can generate only 5 cards per day."
+  },
+
+  standardHeaders: true,
+  legacyHeaders: false,
+});
 
 
 // OpenAI
@@ -83,7 +96,10 @@ app.get("/proxy-image", async (req, res) => {
 
 
 // Generate card
-app.post("/generate-card", async (req,res)=>{
+app.post(
+  "/generate-card",
+  generateCardLimiter,
+  async (req,res)=>{
 
 
 try {
