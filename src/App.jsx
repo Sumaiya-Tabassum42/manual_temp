@@ -5,46 +5,49 @@ import Preview from "./components/Preview";
 import "./index.css";
 
 export default function App() {
-
   const [state, setState] = useState({
-
-    // fixed template
+    // Template
     template: "contemporary",
 
-    // AI / manual fields
+    // Article
     articleUrl: "",
 
-    headline:
-      "আপনার শিরোনাম এখানে আসবে",
+    // AI Content
+    headline: "আপনার শিরোনাম এখানে আসবে",
+    summary: "",
+    hashtags: "",
 
+    // Highlight
     highlightWord: "",
     highlightColor: "#E63946",
 
-    // editable fields
+    // Card Info
     subcategory: "ফিফা বিশ্বকাপ",
     source: "The Contemporary",
 
-    date:
-      new Date().toLocaleDateString("bn-BD"),
+    date: new Date().toLocaleDateString("bn-BD"),
 
-    background: null,
+    // Background Images
+    background: null,          // Currently displayed image
+    articleBackground: null,   // Original AI/article image
 
+    // Background Controls
+    backgroundOpacity: 0.95,
+    backgroundBrightness: 1.15,
+    backgroundBlur: 0,
+    backgroundPosition: "center",
   });
-
 
   return (
     <div className="app-container">
-
       <Editor
         state={state}
         setState={setState}
       />
 
-
       <Preview
         state={state}
       />
-
     </div>
   );
 }
