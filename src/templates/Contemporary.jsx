@@ -164,7 +164,7 @@ export default function Contemporary({ state }) {
 
           right:30,
 
-          height:70,
+          height:80,
 
 
           zIndex:2,
