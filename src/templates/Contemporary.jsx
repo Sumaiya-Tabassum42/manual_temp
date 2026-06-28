@@ -26,40 +26,42 @@ export default function Contemporary({ state }) {
     >
 
 
-      {/* BACKGROUND IMAGE */}
-      {state.background && (
+     {/* BACKGROUND IMAGE */}
+{state.background && (
+  <img
+    src={state.background}
+    alt=""
+    crossOrigin="anonymous"
+    style={{
+      position: "absolute",
+      inset: 0,
 
-        <img
-          src={state.background}
-          alt=""
-          crossOrigin="anonymous"
+      width: "100%",
+      height: "100%",
 
-          style={{
+      objectFit: "cover",
 
-            position: "absolute",
+      objectPosition:
+        state.backgroundPosition || "center",
 
-            top: 0,
-            left: 0,
+      opacity:
+        state.backgroundOpacity ?? 0.95,
 
-            width: "100%",
-            height: "100%",
+      filter: `
+        brightness(${state.backgroundBrightness ?? 1.15})
+        blur(${state.backgroundBlur ?? 0}px)
+        saturate(1.15)
+        contrast(1.08)
+      `,
 
-            objectFit: "cover",
+      transform: "scale(1.03)",
 
-            // CHANGE THIS VALUE
-            // 0.30 darker
-            // 0.50 balanced
-            // 0.70 brighter
-            opacity: 0.90,
+      transition: "all .25s ease",
 
-            zIndex: 0,
-
-          }}
-
-        />
-
-      )}
-
+      zIndex: 0
+    }}
+  />
+)}
 
 
       {/* DARK OVERLAY */}
@@ -78,7 +80,7 @@ export default function Contemporary({ state }) {
 
 
           background:
-            "linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.92))",
+            "linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.72))",
 
 
           zIndex:1,
