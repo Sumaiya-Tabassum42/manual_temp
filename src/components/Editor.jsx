@@ -314,35 +314,6 @@ Number(e.target.value)
 </div>
 
 
-<div className="group">
-
-<label>
-
-Background Position
-
-</label>
-
-<select
-
-value={state.backgroundPosition}
-
-onChange={(e)=>
-update(
-"backgroundPosition",
-e.target.value
-)}
-
->
-
-<option value="center">Center</option>
-<option value="top">Top</option>
-<option value="bottom">Bottom</option>
-<option value="left">Left</option>
-<option value="right">Right</option>
-
-</select>
-
-</div>
 
 
 
